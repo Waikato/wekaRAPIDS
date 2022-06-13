@@ -1,0 +1,51 @@
+# Template Description file for a Weka package
+#
+# 
+
+# Package name (required)
+PackageName=wekaRAPIDS
+
+# Version (required)
+Version=0.1
+
+#Date
+Date=2022-06-09
+
+# Title (required)
+Title=Provides integration with RAPIDS in Weka.
+
+Category=Python integration
+
+# Author (required)
+Author=Justin Liu
+
+# Maintainer (required)
+Maintainer=Weka team <wekalist@list.scms.waikato.ac.nz>
+
+# License (required)
+License=GPL 3.0
+
+# Description (required)
+Description=Integration with RAPIDS for Weka. Python version 3.8.x or 3.9.x is required.
+
+Changes=Initial version for the integration with RAPIDS.
+
+# Package URL for obtaining the package archive (required)
+PackageURL=
+
+# URL for further information
+URL=https://github.com/Waikato/wekaRAPIDS
+
+# Enhances various other packages ?
+# Enhances=packageName1,packageName2,...
+
+# Related to other packages?
+#Related=
+
+# Dependencies
+Depends=weka (>=3.8.0)
+
+MessageToDisplayOnInstallation=This package requires python (3.8 or 3.9) to be installed on your\n\
+ computer before it can be used. The python command must be in the PATH. Within python it requires the:\n\
+ following packages: RAPIDS packages. Please follow the instruction in https://rapids.ai/ to install \n\
+ relative packages.
