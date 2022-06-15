@@ -9,7 +9,7 @@ PackageName=wekaRAPIDS
 Version=0.1
 
 #Date
-Date=2022-06-09
+Date=2022-06-15
 
 # Title (required)
 Title=Provides integration with RAPIDS in Weka.
@@ -31,7 +31,7 @@ Description=Integration with RAPIDS for Weka. Python version 3.8.x or 3.9.x is r
 Changes=Initial version for the integration with RAPIDS.
 
 # Package URL for obtaining the package archive (required)
-PackageURL=
+PackageURL=https://github.com/Waikato/wekaRAPIDS/releases/download/v0.1/wekaRAPIDS.zip
 
 # URL for further information
 URL=https://github.com/Waikato/wekaRAPIDS
