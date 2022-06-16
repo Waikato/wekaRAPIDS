@@ -6,10 +6,10 @@
 PackageName=wekaRAPIDS
 
 # Version (required)
-Version=0.1
+Version=0.1.1
 
 #Date
-Date=2022-06-15
+Date=2022-06-16
 
 # Title (required)
 Title=Provides integration with RAPIDS in Weka.
@@ -44,6 +44,12 @@ URL=https://github.com/Waikato/wekaRAPIDS
 
 # Dependencies
 Depends=weka (>=3.8.0)
+
+# Specify which OS's the package can operate with. Omitting this entry indicates no restrictions on OS. (optional)
+OSName=linux
+
+# Specify which architecture the package can operate with. Omitting this entry indicates no restriction. (optional)
+OSArch=64
 
 MessageToDisplayOnInstallation=This package requires python (3.8 or 3.9) to be installed on your\n\
  computer before it can be used. The python command must be in the PATH. Within python it requires the:\n\
