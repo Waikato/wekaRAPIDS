@@ -71,16 +71,16 @@ public class CuMLDaskClassifier extends AbstractClassifier
         KNeighborsClassifier("neighbors", true, false, true, false,
                 "n_neighbors=5, algorithm='brute', metric='euclidean', weights='uniform', handle=None,\n"
                         + "\tverbose=False, output_type=None"),
-        RandomForestClassifier("ensemble", true, false, true, false,
-                "\tn_estimators=100, split_criterion=0, bootstrap=True, max_samples=1.0, max_depth=16,\n"
-                        + "\tmax_leaves=-1, max_features='auto', n_bins=128, n_streams=4, min_samples_leaf=1,\n"
-                        + "\tmin_samples_split=2, min_impurity_decrease=0.0, max_batch_size=4096, random_state=None,\n"
-                        + "\thandle=None, verbose=False, output_type=None"),
-        RandomForestRegressor("ensemble", false, true, false, false,
-                "\tn_estimators=100, split_criterion=0, bootstrap=True, max_samples=1.0, max_depth=16,\n"
-                        + "\tmax_leaves=-1, max_features='auto', n_bins=128, n_streams=4, min_samples_leaf=1,\n"
-                        + "\tmin_samples_split=2, min_impurity_decrease=0.0, accuracy_metric='r2', max_batch_size=4096,\n"
-                        + "\trandom_state=None, handle=None, verbose=False, output_type=None"),
+//        RandomForestClassifier("ensemble", true, false, true, false,
+//                "\tn_estimators=100, split_criterion=0, bootstrap=True, max_samples=1.0, max_depth=16,\n"
+//                        + "\tmax_leaves=-1, max_features='auto', n_bins=128, n_streams=4, min_samples_leaf=1,\n"
+//                        + "\tmin_samples_split=2, min_impurity_decrease=0.0, max_batch_size=4096, random_state=None,\n"
+//                        + "\thandle=None, verbose=False, output_type=None"),
+//        RandomForestRegressor("ensemble", false, true, false, false,
+//                "\tn_estimators=100, split_criterion=0, bootstrap=True, max_samples=1.0, max_depth=16,\n"
+//                        + "\tmax_leaves=-1, max_features='auto', n_bins=128, n_streams=4, min_samples_leaf=1,\n"
+//                        + "\tmin_samples_split=2, min_impurity_decrease=0.0, accuracy_metric='r2', max_batch_size=4096,\n"
+//                        + "\trandom_state=None, handle=None, verbose=False, output_type=None"),
         LinearRegression("linear_model", false, true, false, false,
                 "\talgorithm='eig', fit_intercept=True, normalize=False, handle=None, verbose=False"),
         Ridge("linear_model", false, true, false, false,
@@ -216,7 +216,7 @@ public class CuMLDaskClassifier extends AbstractClassifier
     /**
      * The cuml dask learner to use
      */
-    protected Learner m_learner = Learner.RandomForestClassifier;
+    protected Learner m_learner = Learner.KNeighborsClassifier;
 
     /**
      * The parameters to pass to the learner
@@ -430,15 +430,15 @@ public class CuMLDaskClassifier extends AbstractClassifier
             description = "RAPIDS learner to use.\nAvailable learners:\n"
                     + "KNeighborsRegressor\n"
                     + "KNeighborsClassifier\n"
-                    + "RandomForestClassifier\n"
-                    + "RandomForestRegressor\n"
+//                    + "RandomForestClassifier\n"
+//                    + "RandomForestRegressor\n"
                     + "LinearRegression\n"
                     + "Ridge\n"
                     + "Lasso\n"
                     + "ElasticNet\n"
                     + "MultinomialNB\n"
                     + "CD\n"
-                    + "\n(default = RandomForestClassifier)",
+                    + "\n(default = KNeighborsClassifier)",
             commandLineParamName = "learner",
             commandLineParamSynopsis = "-learner <learner name>", displayOrder = 1)
     public SelectedTag getLearner() {

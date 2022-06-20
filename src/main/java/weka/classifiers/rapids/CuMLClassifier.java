@@ -907,7 +907,7 @@ public class CuMLClassifier extends AbstractClassifier
                             + (getLearnerOpts().length() > 0 ? getLearnerOpts() : "") + ")")
                     .append("\n");
 
-            learnScript.append("X, Y = cudf.from_pandas(X), cudf.from_pandas(Y)\n");
+//            learnScript.append("X, Y = cudf.from_pandas(X), cudf.from_pandas(Y)\n");
             if (m_learner.isClassifier()) {
                 learnScript.append(MODEL_ID + m_modelHash + ".fit(X.astype('float32'), Y.astype('int32'))\n");
             } else if (m_learner.isRegressor()) {
@@ -1018,13 +1018,13 @@ public class CuMLClassifier extends AbstractClassifier
             String learnerModule = m_learner.getModule();
             String learnerMethod = m_learner.toString();
 
-            predictScript.append("X = cudf.from_pandas(X)\n");
+//            predictScript.append("X = cudf.from_pandas(X)\n");
             predictScript
                     .append("from cuml." + learnerModule + " import " + learnerMethod).append("\n");
 
             predictScript.append("preds = " + MODEL_ID + m_modelHash + ".predict"
                     + (m_learner.producesProbabilities(m_learnerOpts) ? "_proba" : "")
-                    + "(X)").append("\npreds = preds.values.tolist()\n");
+                    + "(X)").append("\npreds = preds.tolist()\n");
             List<String> outAndErr =
                     session.executeScript(predictScript.toString(), getDebug());
             if (outAndErr.size() == 2 && outAndErr.get(1).length() > 0) {
