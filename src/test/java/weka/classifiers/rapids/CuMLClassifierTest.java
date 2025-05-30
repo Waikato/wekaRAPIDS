@@ -48,4 +48,9 @@ public class CuMLClassifierTest extends AbstractClassifierTest {
     public static void main(String[] args) {
         junit.textui.TestRunner.run(suite());
     }
+
+    @Override
+    protected boolean canPredict(int type) {
+        return true;
+    }
 }

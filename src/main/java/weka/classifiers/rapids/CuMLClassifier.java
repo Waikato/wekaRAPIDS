@@ -1024,7 +1024,7 @@ public class CuMLClassifier extends AbstractClassifier
 
             predictScript.append("preds = " + MODEL_ID + m_modelHash + ".predict"
                     + (m_learner.producesProbabilities(m_learnerOpts) ? "_proba" : "")
-                    + "(X)").append("\npreds = preds.tolist()\n");
+                    + "(X)").append("\npreds = preds.values.tolist()\n");
             List<String> outAndErr =
                     session.executeScript(predictScript.toString(), getDebug());
             if (outAndErr.size() == 2 && outAndErr.get(1).length() > 0) {

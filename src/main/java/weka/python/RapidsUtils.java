@@ -215,9 +215,9 @@ public class RapidsUtils {
                     throw new WekaException(ack.get("error_message").toString());
                 }
                 // get the script out and err
-                outAndErr.add(ack.get("script_out").toString());
-                outAndErr.add(ack.get("script_error").toString());
-                if (debug) {
+                outAndErr.add(ack.get("script_out").toString().trim());
+                outAndErr.add(ack.get("script_error").toString().trim());
+                if (debug && (!outAndErr.get(0).isEmpty() || !outAndErr.get(1).isEmpty())) {
                     if (log != null) {
                         log.logMessage("Script output:\n" + outAndErr.get(0));
                         log.logMessage("\nScript error:\n" + outAndErr.get(1));

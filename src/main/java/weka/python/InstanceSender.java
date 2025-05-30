@@ -39,6 +39,10 @@ public class InstanceSender {
         if (m_Debug) {
             System.out.println("Sending instances via method: " + m_SendingMethod);
         }
+
+        //Start time
+        long begin = System.currentTimeMillis();
+
         switch (m_SendingMethod) {
             case INSTANCE_SENDING_CSV:
                 m_Session.instancesToPythonAsScikitLearn(instances, pythonFrameName, debug);
@@ -49,6 +53,13 @@ public class InstanceSender {
                 break;
             default: // INSTANCE_SENDING_ARROW_IPC
                 m_Session.instancesToPythonAsArrow(instances, pythonFrameName, debug);
+        }
+
+        //End time
+        long end = System.currentTimeMillis();
+
+        if (m_Debug) {
+            System.out.println("Time taken to send instances: " + (end - begin) + "ms");
         }
     }
 
