@@ -17,3 +17,7 @@ buildNumber.properties
 /lib/
 !/lib/.gitkeep
 /site/
+acceweka-ds/
+*.arff
+*.csv
+log/
